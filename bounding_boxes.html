@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Separating scans with multiple distinct drawings">
+
+<title>singleline_stroke3 - bounding_boxes</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="singleline_stroke3 - bounding_boxes">
+<meta property="og:description" content="Separating scans with multiple distinct drawings">
+<meta property="og:image" content="https://singleline-stroke3.andrewlook.com/16_bounding_boxes_files/figure-html/cell-2-output-2.png">
+<meta property="og:site-name" content="singleline_stroke3">
+<meta property="og:image:height" content="231">
+<meta property="og:image:width" content="349">
+<meta name="twitter:title" content="singleline_stroke3 - bounding_boxes">
+<meta name="twitter:description" content="Separating scans with multiple distinct drawings">
+<meta name="twitter:image" content="https://singleline-stroke3.andrewlook.com/16_bounding_boxes_files/figure-html/cell-2-output-2.png">
+<meta name="twitter:image-height" content="231">
+<meta name="twitter:image-width" content="349">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">singleline_stroke3</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools ms-auto">
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./bounding_boxes.html">bounding_boxes</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">singleline_stroke3</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./fileorg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">fileorg</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./embeddings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">embeddings</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./clustering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">e2e</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./svg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">svg_files</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./display.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">display</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./transforms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">transforms</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./strokes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">path_joining</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dataset.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">dataset</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bounding_boxes.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">bounding_boxes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">analysis</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-problem" id="toc-the-problem" class="nav-link active" data-scroll-target="#the-problem">The Problem</a></li>
+  <li><a href="#intersections-between-bounding-boxes" id="toc-intersections-between-bounding-boxes" class="nav-link" data-scroll-target="#intersections-between-bounding-boxes">Intersections between Bounding Boxes</a>
+  <ul class="collapse">
+  <li><a href="#plot_intersection" id="toc-plot_intersection" class="nav-link" data-scroll-target="#plot_intersection">plot_intersection</a></li>
+  </ul></li>
+  <li><a href="#intersection-over-union-iou" id="toc-intersection-over-union-iou" class="nav-link" data-scroll-target="#intersection-over-union-iou">Intersection over Union (IOU)</a>
+  <ul class="collapse">
+  <li><a href="#sanity-check-non-intersecting-shapes" id="toc-sanity-check-non-intersecting-shapes" class="nav-link" data-scroll-target="#sanity-check-non-intersecting-shapes">Sanity Check: Non-Intersecting Shapes</a></li>
+  </ul></li>
+  <li><a href="#computing-pairwise-intersections" id="toc-computing-pairwise-intersections" class="nav-link" data-scroll-target="#computing-pairwise-intersections">Computing Pairwise Intersections</a>
+  <ul class="collapse">
+  <li><a href="#overlapping_bboxes" id="toc-overlapping_bboxes" class="nav-link" data-scroll-target="#overlapping_bboxes">overlapping_bboxes</a></li>
+  </ul></li>
+  <li><a href="#merging-strokes-with-sufficient-overlap" id="toc-merging-strokes-with-sufficient-overlap" class="nav-link" data-scroll-target="#merging-strokes-with-sufficient-overlap">Merging Strokes With Sufficient Overlap</a>
+  <ul class="collapse">
+  <li><a href="#single_pass_merge_bboxes" id="toc-single_pass_merge_bboxes" class="nav-link" data-scroll-target="#single_pass_merge_bboxes">single_pass_merge_bboxes</a></li>
+  </ul></li>
+  <li><a href="#making-multiple-merge-passes" id="toc-making-multiple-merge-passes" class="nav-link" data-scroll-target="#making-multiple-merge-passes">Making Multiple Merge Passes</a>
+  <ul class="collapse">
+  <li><a href="#separate_non_overlapping" id="toc-separate_non_overlapping" class="nav-link" data-scroll-target="#separate_non_overlapping">separate_non_overlapping</a></li>
+  <li><a href="#group_and_rescale_overlapping_strokes" id="toc-group_and_rescale_overlapping_strokes" class="nav-link" data-scroll-target="#group_and_rescale_overlapping_strokes">group_and_rescale_overlapping_strokes</a></li>
+  </ul></li>
+  <li><a href="#generating-a-new-dataset" id="toc-generating-a-new-dataset" class="nav-link" data-scroll-target="#generating-a-new-dataset">Generating a new dataset</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/andrewlook/singleline_stroke3/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">bounding_boxes</h1>
+</div>
+
+<div>
+  <div class="description">
+    Separating scans with multiple distinct drawings
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
+<section id="the-problem" class="level2">
+<h2 class="anchored" data-anchor-id="the-problem">The Problem</h2>
+<p>Many drawings in the dataset represent a single face, where the model can learn to start a drawing and stop when the face is more or less completed. However, some scans include a page where I drew multiple drawings. Looking at the full image below, it seems that two of the strokes (purple and green) are obviously connected as part of the same “drawing”.</p>
+<p>However, the blue, red, and orange strokes seem distinct - there’s a significant amount of space between them. Intuitively, if I drew a box around each sub-drawing (based on the minimum and maximum X and Y coordinate values), I could quantity how much overlap exists.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data_home <span class="op">=</span> singleline_data_home(default<span class="op">=</span><span class="st">"../data_home"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>sample_path <span class="op">=</span> data_home <span class="op">/</span> <span class="st">"stroke3/epoch-20231214/sample-v2-eps10.npz"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>full_dataset <span class="op">=</span> np.load(</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    sample_path,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    encoding<span class="op">=</span><span class="st">"latin1"</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    allow_pickle<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>)[<span class="st">"arr_0"</span>]</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>s0 <span class="op">=</span> deltas_to_strokes(full_dataset[<span class="dv">0</span>])</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>plot_strokes(s0, bounding_boxes<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>plot_strokes(s0)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"This drawing has </span><span class="sc">{</span><span class="bu">len</span>(s0)<span class="sc">}</span><span class="ss"> distinct strokes"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>no env var SINGLELINE_DATA_HOME, defaulting to: None
+This drawing has 5 distinct strokes</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="16_bounding_boxes_files/figure-html/cell-2-output-2.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="16_bounding_boxes_files/figure-html/cell-2-output-3.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># make a shorthand for individual strokes within the drawing</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>s00 <span class="op">=</span> s0[<span class="dv">0</span>]</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>s01 <span class="op">=</span> s0[<span class="dv">1</span>]</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>s02 <span class="op">=</span> s0[<span class="dv">2</span>]</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>s03 <span class="op">=</span> s0[<span class="dv">3</span>]</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>s04 <span class="op">=</span> s0[<span class="dv">4</span>]</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>bb02 <span class="op">=</span> BoundingBox.create(s02)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>bb04 <span class="op">=</span> BoundingBox.create(s04)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(bb02)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(bb04)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>plot_strokes([s02, s04], bounding_boxes<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>BBox((96.63026729741347, 10.718543770600853), (125.19782419420726, 54.38382939025482)) (width 28.56755689679379 x height 43.665285619653964)
+BBox((76.1019055995039, 20.73623921702644), (109.21657860962235, 100.64026618156714)) (width 33.11467301011845 x height 79.9040269645407)</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="16_bounding_boxes_files/figure-html/cell-3-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="intersections-between-bounding-boxes" class="level2">
+<h2 class="anchored" data-anchor-id="intersections-between-bounding-boxes">Intersections between Bounding Boxes</h2>
+<p>Now I’d like to visualize the intersection between these two bounding boxes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>intersection_02_04 <span class="op">=</span> bb02.intersection(bb04)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(intersection_02_04)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># note that taking bb02's intersection with bb04 is identical to bb04's intersection with bb02</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="cf">assert</span> intersection_02_04.area() <span class="op">==</span> bb04.intersection(bb02).area()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>BBox((96.63026729741347, 20.73623921702644), (109.21657860962235, 54.38382939025482)) (width 12.586311312208878 x height 33.64759017322838)</code></pre>
+</div>
+</div>
+<hr>
+<p><a href="https://github.com/andrewlook/singleline_stroke3/blob/main/singleline_stroke3/bounding_boxes.py#L24" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<section id="plot_intersection" class="level3">
+<h3 class="anchored" data-anchor-id="plot_intersection">plot_intersection</h3>
+<blockquote class="blockquote">
+<pre><code> plot_intersection (stroke_a, stroke_b, extra_bb=None, title=None)</code></pre>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>plot_intersection(s02, s04, extra_bb<span class="op">=</span>bb02.intersection(bb04))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="16_bounding_boxes_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>So I can identify an intersection between 2 strokes. But when I take a look at another example, it seems like there’s a much less significant overlap:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>bb00 <span class="op">=</span> BoundingBox.create(s00)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>bb01 <span class="op">=</span> BoundingBox.create(s01)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>plot_intersection(s00, s01, extra_bb<span class="op">=</span>bb00.intersection(bb01))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="16_bounding_boxes_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="intersection-over-union-iou" class="level2">
+<h2 class="anchored" data-anchor-id="intersection-over-union-iou">Intersection over Union (IOU)</h2>
+<p>What I’d like to do is rank intersections between bounding boxes by their relative importance. How much space does the intersection take up relative to the overall area of the two shapes that are intersecting?</p>
+<p>There’s a helpful metric here called intersection over union:</p>
+<pre><code>intersection_area / (shape1_area + shape2_area - intersection_area)</code></pre>
+<p>For some intuition on why the intersection area gets subtracted in the denominator of that equation, consider this diagram:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://b2633864.smushcdn.com/2633864/wp-content/uploads/2016/09/iou_equation.png?lossy=2&amp;strip=1&amp;webp=1" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">IOU</figcaption>
+</figure>
+</div>
+<blockquote class="blockquote">
+<p>source: <a href="https://pyimagesearch.com/2016/11/07/intersection-over-union-iou-for-object-detection/">Intersection over Union (IoU) for object detection - PyImageSearch</a></p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># compute the areas of the two shapes</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>area_02 <span class="op">=</span> bb02.area()</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>area_04 <span class="op">=</span> bb04.area()</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Shape 2 area: </span><span class="sc">{</span>area_02<span class="sc">}</span><span class="ss">, Shape 4 area: </span><span class="sc">{</span>area_04<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co"># compute the area of the intersection</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>intersection_area <span class="op">=</span> intersection_02_04.area()</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Intersection Area: </span><span class="sc">{</span>intersection_area<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co"># divide the intersection area by the sum of each shape minus the intersection area</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>intersection_over_union <span class="op">=</span> intersection_area <span class="op">/</span> (area_02 <span class="op">+</span> area_04 <span class="op">-</span> intersection_area)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"IOU: </span><span class="sc">{</span>intersection_over_union<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Shape 2 area: 1247.4105313542163, Shape 4 area: 2645.995725122453
+Intersection Area: 423.49904482587266
+IOU: 0.12204909785596094</code></pre>
+</div>
+</div>
+<p>Now I can compare the smaller intersection’s IOU value and see a significant difference:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"IOU of larger overlap: </span><span class="sc">{</span>bb02<span class="sc">.</span>iou(bb04)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"IOU of smaller overlap: </span><span class="sc">{</span>bb00<span class="sc">.</span>iou(bb01)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>IOU of larger overlap: 0.12204909785596094
+IOU of smaller overlap: 0.035704846519125095</code></pre>
+</div>
+</div>
+<section id="sanity-check-non-intersecting-shapes" class="level3">
+<h3 class="anchored" data-anchor-id="sanity-check-non-intersecting-shapes">Sanity Check: Non-Intersecting Shapes</h3>
+<p>I’ll pick two shapes that don’t overlap, and verify a couple of conditions I expect to be true: - <code>BoundingBox.intersection()</code> should return <code>None</code>. - <code>BoundingBox.iou()</code> should return <code>0.0</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>plot_strokes([s00, s03], bounding_boxes<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>bb00 <span class="op">=</span> BoundingBox.create(s00)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>bb03 <span class="op">=</span> BoundingBox.create(s03)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Intersection = </span><span class="sc">{</span>bb00<span class="sc">.</span>intersection(bb03)<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"IOU = </span><span class="sc">{</span>bb00<span class="sc">.</span>iou(bb03)<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="16_bounding_boxes_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Intersection = None
+IOU = 0.0</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="computing-pairwise-intersections" class="level2">
+<h2 class="anchored" data-anchor-id="computing-pairwise-intersections">Computing Pairwise Intersections</h2>
+<p>My goal here is to go through a full scan, and decide which strokes should stay together and which ones should be split out into separate files. The rough idea I have in mind is to take all the strokes, and compute overlaps between each pair of strokes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>bboxes <span class="op">=</span> [BoundingBox.create(s) <span class="cf">for</span> s <span class="kw">in</span> s0]</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="bu">list</span>(combinations(<span class="bu">range</span>(<span class="bu">len</span>(s0)), <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>[(0, 1),
+ (0, 2),
+ (0, 3),
+ (0, 4),
+ (1, 2),
+ (1, 3),
+ (1, 4),
+ (2, 3),
+ (2, 4),
+ (3, 4)]</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> overlapping_bboxes(bboxes):</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    max_iou_val <span class="op">=</span> {}</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    max_iou_idx <span class="op">=</span> {}</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> a, b <span class="kw">in</span> combinations(<span class="bu">range</span>(<span class="bu">len</span>(bboxes)), <span class="dv">2</span>):</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>        iou <span class="op">=</span> bboxes[a].iou(bboxes[b])</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> a <span class="kw">not</span> <span class="kw">in</span> max_iou_val <span class="kw">or</span> max_iou_val[a] <span class="op">&lt;</span> iou:</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>            max_iou_val[a] <span class="op">=</span> iou</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>            max_iou_idx[a] <span class="op">=</span> b</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> b <span class="kw">not</span> <span class="kw">in</span> max_iou_val <span class="kw">or</span> max_iou_val[b] <span class="op">&lt;</span> iou:</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>            max_iou_val[b] <span class="op">=</span> iou</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>            max_iou_idx[b] <span class="op">=</span> a</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> max_iou_val, max_iou_idx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+<p><a href="https://github.com/andrewlook/singleline_stroke3/blob/main/singleline_stroke3/bounding_boxes.py#L72" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<section id="overlapping_bboxes" class="level3">
+<h3 class="anchored" data-anchor-id="overlapping_bboxes">overlapping_bboxes</h3>
+<blockquote class="blockquote">
+<pre><code> overlapping_bboxes (bboxes)</code></pre>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>max_iou_val, max_iou_idx <span class="op">=</span> overlapping_bboxes(bboxes)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(max_iou_val)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(max_iou_idx)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{0: 0.035704846519125095, 1: 0.035704846519125095, 2: 0.12204909785596094, 3: 0.0, 4: 0.12204909785596094}
+{0: 1, 1: 0, 2: 4, 3: 0, 4: 2}</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"stroke at index </span><span class="sc">{</span>n<span class="sc">}</span><span class="ss"> has an intersection with stroke at index </span><span class="sc">{</span>max_iou_idx[n]<span class="sc">}</span><span class="ss"> with IOU = </span><span class="sc">{</span>max_iou_val[n]<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="dv">4</span></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    <span class="ss">f"stroke at index </span><span class="sc">{</span>n<span class="sc">}</span><span class="ss"> has an intersection with stroke at index </span><span class="sc">{</span>max_iou_idx<span class="sc">.</span>get(n, <span class="va">None</span>)<span class="sc">}</span><span class="ss"> with IOU = </span><span class="sc">{</span>max_iou_val<span class="sc">.</span>get(n, <span class="va">None</span>)<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>stroke at index 2 has an intersection with stroke at index 4 with IOU = 0.12204909785596094
+stroke at index 4 has an intersection with stroke at index 2 with IOU = 0.12204909785596094</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="merging-strokes-with-sufficient-overlap" class="level2">
+<h2 class="anchored" data-anchor-id="merging-strokes-with-sufficient-overlap">Merging Strokes With Sufficient Overlap</h2>
+<p>Now I want to write a function that’ll iterate through the bounding boxes and decide which ones should be merged. This function should accept: 1. a list of lists of stroke indices 2. a list of bounding boxes corresponding to the space covered by the strokes represented by the indices in each list.</p>
+<p>For each set of overlapping bounding boxes, if the IOU exceeds a provided threshold (I’ve chosen <code>0.05</code> as a starting point), I want to merge those stroke indices into a single list.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> single_pass_merge_bboxes(stroke_idxs, bboxes, iou_threshold<span class="op">=</span><span class="fl">0.05</span>, debug<span class="op">=</span><span class="va">False</span>):</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> log(msg, debug<span class="op">=</span><span class="va">False</span>):</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> debug:</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(msg)</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> <span class="bu">len</span>(stroke_idxs) <span class="op">==</span> <span class="bu">len</span>(bboxes)</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    next_stroke_idxs <span class="op">=</span> []</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>    next_bboxes <span class="op">=</span> []</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>    max_iou_val, max_iou_idx <span class="op">=</span> overlapping_bboxes(bboxes)</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>    bb_idxs <span class="op">=</span> max_iou_val.keys()</span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>    removed <span class="op">=</span> []</span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> a <span class="kw">in</span> bb_idxs:</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> a <span class="kw">in</span> removed:</span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>            log(<span class="ss">f"</span><span class="sc">{</span>a<span class="sc">}</span><span class="ss">: already joined "</span>, debug)</span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>        b <span class="op">=</span> max_iou_idx[a]</span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>        iou <span class="op">=</span> max_iou_val[a]</span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> iou <span class="op">&gt;=</span> iou_threshold:</span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>            log(</span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a>                <span class="ss">f"</span><span class="sc">{</span>a<span class="sc">}</span><span class="ss">-</span><span class="sc">{</span>b<span class="sc">}</span><span class="ss">: JOIN max IOU = </span><span class="sc">{</span>iou<span class="sc">}</span><span class="ss"> for strokes (</span><span class="sc">{</span>stroke_idxs[a]<span class="sc">}</span><span class="ss">, </span><span class="sc">{</span>stroke_idxs[b]<span class="sc">}</span><span class="ss">)"</span>,</span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a>                debug,</span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a>            <span class="co"># remove the joined strokes from consideration for joins in this pass</span></span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a>            removed.append(a)</span>
+<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a>            removed.append(b)</span>
+<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a>            <span class="co"># save the combined stroke lists to return</span></span>
+<span id="cb25-28"><a href="#cb25-28" aria-hidden="true" tabindex="-1"></a>            next_stroke_idxs.append(stroke_idxs[a] <span class="op">+</span> stroke_idxs[b])</span>
+<span id="cb25-29"><a href="#cb25-29" aria-hidden="true" tabindex="-1"></a>            <span class="co"># save a merged bounding box, representing the union of the lists of strokes.</span></span>
+<span id="cb25-30"><a href="#cb25-30" aria-hidden="true" tabindex="-1"></a>            next_bboxes.append(bboxes[a].merge(bboxes[b]))</span>
+<span id="cb25-31"><a href="#cb25-31" aria-hidden="true" tabindex="-1"></a>        <span class="cf">elif</span> iou <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb25-32"><a href="#cb25-32" aria-hidden="true" tabindex="-1"></a>            log(<span class="ss">f"</span><span class="sc">{</span>a<span class="sc">}</span><span class="ss">-</span><span class="sc">{</span>b<span class="sc">}</span><span class="ss">: NO INTERSECTION"</span>, debug)</span>
+<span id="cb25-33"><a href="#cb25-33" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb25-34"><a href="#cb25-34" aria-hidden="true" tabindex="-1"></a>            log(<span class="ss">f"</span><span class="sc">{</span>a<span class="sc">}</span><span class="ss">-</span><span class="sc">{</span>b<span class="sc">}</span><span class="ss">: IOU value </span><span class="sc">{</span>iou<span class="sc">}</span><span class="ss"> is below threshold"</span>, debug)</span>
+<span id="cb25-35"><a href="#cb25-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-36"><a href="#cb25-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(bboxes)):</span>
+<span id="cb25-37"><a href="#cb25-37" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> i <span class="kw">in</span> removed:</span>
+<span id="cb25-38"><a href="#cb25-38" aria-hidden="true" tabindex="-1"></a>            log(<span class="ss">f"SKIP: </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss"> has already been removed in: </span><span class="sc">{</span>removed<span class="sc">}</span><span class="ss">"</span>, debug)</span>
+<span id="cb25-39"><a href="#cb25-39" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
+<span id="cb25-40"><a href="#cb25-40" aria-hidden="true" tabindex="-1"></a>        log(<span class="ss">f"KEEP: </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span>, debug)</span>
+<span id="cb25-41"><a href="#cb25-41" aria-hidden="true" tabindex="-1"></a>        next_stroke_idxs.append(stroke_idxs[i])</span>
+<span id="cb25-42"><a href="#cb25-42" aria-hidden="true" tabindex="-1"></a>        next_bboxes.append(bboxes[i])</span>
+<span id="cb25-43"><a href="#cb25-43" aria-hidden="true" tabindex="-1"></a>    log(<span class="st">"---------"</span>, debug)</span>
+<span id="cb25-44"><a href="#cb25-44" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> next_stroke_idxs, next_bboxes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+<p><a href="https://github.com/andrewlook/singleline_stroke3/blob/main/singleline_stroke3/bounding_boxes.py#L86" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<section id="single_pass_merge_bboxes" class="level3">
+<h3 class="anchored" data-anchor-id="single_pass_merge_bboxes">single_pass_merge_bboxes</h3>
+<blockquote class="blockquote">
+<pre><code> single_pass_merge_bboxes (stroke_idxs, bboxes, iou_threshold=0.05,
+                           debug=False)</code></pre>
+</blockquote>
+<p>In this case, the function correctly decides to merge strokes 2 and 4:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>stroke_idxs <span class="op">=</span> [[i] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(s0))]</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>bboxes <span class="op">=</span> [BoundingBox.create(s) <span class="cf">for</span> s <span class="kw">in</span> s0]</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>single_pass_merge_bboxes(stroke_idxs, bboxes, debug<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>plot_intersection(s02, s04, extra_bb<span class="op">=</span>bb02.merge(bb04))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0-1: IOU value 0.035704846519125095 is below threshold
+1-0: IOU value 0.035704846519125095 is below threshold
+2-4: JOIN max IOU = 0.12204909785596094 for strokes ([2], [4])
+3-0: NO INTERSECTION
+4: already joined 
+KEEP: 0
+KEEP: 1
+SKIP: 2 has already been removed in: [2, 4]
+KEEP: 3
+SKIP: 4 has already been removed in: [2, 4]
+---------</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="16_bounding_boxes_files/figure-html/cell-18-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Now I’ll look at a more complex example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>s6 <span class="op">=</span> deltas_to_strokes(full_dataset[<span class="dv">6</span>])</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>plot_strokes(s6, bounding_boxes<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>stroke_idxs <span class="op">=</span> [[i] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(s6))]</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>bboxes <span class="op">=</span> [BoundingBox.create(s) <span class="cf">for</span> s <span class="kw">in</span> s6]</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>single_pass_merge_bboxes(stroke_idxs, bboxes, debug<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="16_bounding_boxes_files/figure-html/cell-19-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0-1: JOIN max IOU = 0.304835709605367 for strokes ([0], [1])
+1: already joined 
+2-0: JOIN max IOU = 0.0789861881324346 for strokes ([2], [0])
+3-0: NO INTERSECTION
+SKIP: 0 has already been removed in: [0, 1, 2, 0]
+SKIP: 1 has already been removed in: [0, 1, 2, 0]
+SKIP: 2 has already been removed in: [0, 1, 2, 0]
+KEEP: 3
+---------</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<pre><code>([[0, 1], [2, 0], [3]],
+ [BBox((0.0, 0.4103792726651996), (98.72127146961232, 133.94363529105254)) (width 98.72127146961232 x height 133.53325601838733),
+  BBox((0.0, 19.638976908943352), (109.27638960296453, 152.9782295148018)) (width 109.27638960296453 x height 133.33925260585843),
+  BBox((134.2737343533649, 197.9419845429577), (136.92204422299525, 200.00000000000003)) (width 2.648309869630367 x height 2.0580154570423304)])</code></pre>
+</div>
+</div>
+<p>The function correctly decided to merge strokes 0 and 1, but there remains a large overlap with stroke 2. So I’ll need to make multiple passes through each drawing, stopping when no more stroke merges have happened in a given iteration.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>plot_intersection(s6[<span class="dv">0</span>], s6[<span class="dv">1</span>], extra_bb<span class="op">=</span>bboxes[<span class="dv">0</span>].merge(bboxes[<span class="dv">1</span>]))</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>plot_strokes(s6, bounding_boxes<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="16_bounding_boxes_files/figure-html/cell-20-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="16_bounding_boxes_files/figure-html/cell-20-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="making-multiple-merge-passes" class="level2">
+<h2 class="anchored" data-anchor-id="making-multiple-merge-passes">Making Multiple Merge Passes</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> separate_non_overlapping(strokes, iou_threshold<span class="op">=</span><span class="fl">0.05</span>):</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    stroke_idxs <span class="op">=</span> [[i] <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(strokes))]</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    bboxes <span class="op">=</span> [BoundingBox.create(s) <span class="cf">for</span> s <span class="kw">in</span> strokes]</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    next_stroke_idxs, next_bboxes <span class="op">=</span> [], []</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="va">True</span>:</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>        next_stroke_idxs, next_bboxes <span class="op">=</span> single_pass_merge_bboxes(</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>            stroke_idxs, bboxes, iou_threshold<span class="op">=</span>iou_threshold</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">len</span>(next_stroke_idxs) <span class="op">==</span> <span class="bu">len</span>(stroke_idxs):</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>            <span class="cf">break</span></span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>        stroke_idxs <span class="op">=</span> next_stroke_idxs</span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>        bboxes <span class="op">=</span> next_bboxes</span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> stroke_idxs, bboxes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<hr>
+<p><a href="https://github.com/andrewlook/singleline_stroke3/blob/main/singleline_stroke3/bounding_boxes.py#L132" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<section id="separate_non_overlapping" class="level3">
+<h3 class="anchored" data-anchor-id="separate_non_overlapping">separate_non_overlapping</h3>
+<blockquote class="blockquote">
+<pre><code> separate_non_overlapping (strokes, iou_threshold=0.05)</code></pre>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>stroke_groups, bboxes <span class="op">=</span> separate_non_overlapping(s0)</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(stroke_groups)</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sg <span class="kw">in</span> stroke_groups:</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>    strokes <span class="op">=</span> [s0[i] <span class="cf">for</span> i <span class="kw">in</span> sg]</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>    plot_strokes(strokes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[2, 4], [0], [1], [3]]</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="16_bounding_boxes_files/figure-html/cell-23-output-2.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="16_bounding_boxes_files/figure-html/cell-23-output-3.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="16_bounding_boxes_files/figure-html/cell-23-output-4.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="16_bounding_boxes_files/figure-html/cell-23-output-5.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Now, to verify that it worked for the problem case above:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>stroke_groups, bboxes <span class="op">=</span> separate_non_overlapping(s6)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(stroke_groups)</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sg <span class="kw">in</span> stroke_groups:</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    strokes <span class="op">=</span> [s6[i] <span class="cf">for</span> i <span class="kw">in</span> sg]</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>    plot_strokes(strokes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[0, 1, 2, 0], [3]]</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="16_bounding_boxes_files/figure-html/cell-24-output-2.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="16_bounding_boxes_files/figure-html/cell-24-output-3.png" class="img-fluid"></p>
+</div>
+</div>
+<p>One last detail: sometimes there are small bits of writing in the scan (usually page numbers I’ve recorded).</p>
+<p>So I’d like to apply an area threshold, and if a shape’s bounding box is below the threshold I can just omit that from the final list of strokes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>area_threshold <span class="op">=</span> <span class="dv">500</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>stroke_groups, bboxes <span class="op">=</span> separate_non_overlapping(s6)</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sg, bb <span class="kw">in</span> <span class="bu">zip</span>(stroke_groups, bboxes):</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>    strokes <span class="op">=</span> [s6[i] <span class="cf">for</span> i <span class="kw">in</span> sg]</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> bb.area() <span class="op">&lt;</span> area_threshold:</span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>    plot_strokes(strokes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="16_bounding_boxes_files/figure-html/cell-25-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>One last thing: each of the split-out drawings is now much smaller than the available range, and is offset in the coordinate space. I’ll rescale the coordinates so each sub-drawing now fits the space.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>stroke_groups, bboxes <span class="op">=</span> separate_non_overlapping(s0)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> sg, bb <span class="kw">in</span> <span class="bu">zip</span>(stroke_groups, bboxes):</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>    strokes <span class="op">=</span> [s0[i] <span class="cf">for</span> i <span class="kw">in</span> sg]</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> bb.area() <span class="op">&lt;</span> area_threshold:</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>    rescaled <span class="op">=</span> rescale_strokes(strokes, target_size<span class="op">=</span><span class="dv">200</span>)</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>    plot_strokes(rescaled)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="16_bounding_boxes_files/figure-html/cell-26-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="16_bounding_boxes_files/figure-html/cell-26-output-2.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="16_bounding_boxes_files/figure-html/cell-26-output-3.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="16_bounding_boxes_files/figure-html/cell-26-output-4.png" class="img-fluid"></p>
+</div>
+</div>
+<hr>
+<p><a href="https://github.com/andrewlook/singleline_stroke3/blob/main/singleline_stroke3/bounding_boxes.py#L149" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="group_and_rescale_overlapping_strokes" class="level3">
+<h3 class="anchored" data-anchor-id="group_and_rescale_overlapping_strokes">group_and_rescale_overlapping_strokes</h3>
+<blockquote class="blockquote">
+<pre><code> group_and_rescale_overlapping_strokes (orig_strokes, min_area=500,
+                                        target_size=200)</code></pre>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>item <span class="op">=</span> deltas_to_strokes(full_dataset[<span class="dv">3</span>])</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> s <span class="kw">in</span> group_and_rescale_overlapping_strokes(item):</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>    plot_strokes(s)</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="co"># show the original for comparison</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>plot_strokes(item, bounding_boxes<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="16_bounding_boxes_files/figure-html/cell-28-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="16_bounding_boxes_files/figure-html/cell-28-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>item <span class="op">=</span> deltas_to_strokes(full_dataset[<span class="dv">5</span>])</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> s <span class="kw">in</span> group_and_rescale_overlapping_strokes(item):</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>    plot_strokes(s)</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="co"># show the original for comparison</span></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>plot_strokes(item, bounding_boxes<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="16_bounding_boxes_files/figure-html/cell-29-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="16_bounding_boxes_files/figure-html/cell-29-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>item <span class="op">=</span> deltas_to_strokes(full_dataset[<span class="dv">7</span>])</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> s <span class="kw">in</span> group_and_rescale_overlapping_strokes(item):</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>    plot_strokes(s)</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a><span class="co"># show the original for comparison</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>plot_strokes(item, bounding_boxes<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="16_bounding_boxes_files/figure-html/cell-30-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="16_bounding_boxes_files/figure-html/cell-30-output-2.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="16_bounding_boxes_files/figure-html/cell-30-output-3.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="16_bounding_boxes_files/figure-html/cell-30-output-4.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>item <span class="op">=</span> deltas_to_strokes(full_dataset[<span class="dv">8</span>])</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> s <span class="kw">in</span> group_and_rescale_overlapping_strokes(item):</span>
+<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>    plot_strokes(s)</span>
+<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a><span class="co"># show the original for comparison</span></span>
+<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>plot_strokes(item, bounding_boxes<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="16_bounding_boxes_files/figure-html/cell-31-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="16_bounding_boxes_files/figure-html/cell-31-output-2.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="16_bounding_boxes_files/figure-html/cell-31-output-3.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="16_bounding_boxes_files/figure-html/cell-31-output-4.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="generating-a-new-dataset" class="level2">
+<h2 class="anchored" data-anchor-id="generating-a-new-dataset">Generating a new dataset</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co">## to use the full dataset:</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>data_home <span class="op">=</span> singleline_data_home()</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>input_path <span class="op">=</span> data_home <span class="op">/</span> <span class="st">"stroke3/epoch-20231214/full-v2-eps10.npz"</span></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>full_dataset <span class="op">=</span> np.load(</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>    input_path,</span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>    encoding<span class="op">=</span><span class="st">"latin1"</span>,</span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>    allow_pickle<span class="op">=</span><span class="va">True</span>,</span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a>)[<span class="st">"arr_0"</span>]</span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(full_dataset))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>no env var SINGLELINE_DATA_HOME, defaulting to: None
+1921</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>input_path</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>Path('/Users/al/singleline_data/stroke3/epoch-20231214/full-v2-eps10.npz')</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>stroke3_epoch_dir <span class="op">=</span> data_home <span class="op">/</span> <span class="st">"stroke3/epoch-20231214"</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>debug_dir <span class="op">=</span> stroke3_epoch_dir <span class="op">/</span> <span class="st">"grouped-debug"</span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>final_dir <span class="op">=</span> stroke3_epoch_dir <span class="op">/</span> <span class="st">"grouped-final"</span></span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>npz_dir <span class="op">=</span> stroke3_epoch_dir <span class="op">/</span> <span class="st">"grouped-npz"</span></span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> os.path.isdir(debug_dir):</span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>    os.makedirs(debug_dir)</span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> os.path.isdir(final_dir):</span>
+<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>    os.makedirs(final_dir)</span>
+<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="kw">not</span> os.path.isdir(npz_dir):</span>
+<span id="cb50-12"><a href="#cb50-12" aria-hidden="true" tabindex="-1"></a>    os.makedirs(npz_dir)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>output_items <span class="op">=</span> []</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(full_dataset)):</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>    item <span class="op">=</span> deltas_to_strokes(full_dataset[i])</span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j, s <span class="kw">in</span> <span class="bu">enumerate</span>(group_and_rescale_overlapping_strokes(item)):</span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>        plot_strokes(s, fname<span class="op">=</span>debug_dir <span class="op">/</span> <span class="ss">f"</span><span class="sc">{</span>i<span class="sc">:04d}</span><span class="ss">_group-</span><span class="sc">{</span>j<span class="sc">:02d}</span><span class="ss">.png"</span>)</span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>        plot_strokes(</span>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>            s, fname<span class="op">=</span>final_dir <span class="op">/</span> <span class="ss">f"</span><span class="sc">{</span>i<span class="sc">:04d}</span><span class="ss">_group-</span><span class="sc">{</span>j<span class="sc">:02d}</span><span class="ss">.png"</span>, transparent<span class="op">=</span><span class="va">True</span></span>
+<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a>        output_items.append(s)</span>
+<span id="cb51-10"><a href="#cb51-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># show the original for comparison</span></span>
+<span id="cb51-11"><a href="#cb51-11" aria-hidden="true" tabindex="-1"></a>    plot_strokes(item, bounding_boxes<span class="op">=</span><span class="va">True</span>, fname<span class="op">=</span>debug_dir <span class="op">/</span> <span class="ss">f"</span><span class="sc">{</span>i<span class="sc">:04d}</span><span class="ss">__overview.png"</span>)</span>
+<span id="cb51-12"><a href="#cb51-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-13"><a href="#cb51-13" aria-hidden="true" tabindex="-1"></a>new_dataset <span class="op">=</span> np.array(output_items, dtype<span class="op">=</span><span class="bu">object</span>)</span>
+<span id="cb51-14"><a href="#cb51-14" aria-hidden="true" tabindex="-1"></a>new_dataset_deltas <span class="op">=</span> np.array([strokes_to_deltas(s) <span class="cf">for</span> s <span class="kw">in</span> new_dataset], dtype<span class="op">=</span><span class="bu">object</span>)</span>
+<span id="cb51-15"><a href="#cb51-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-16"><a href="#cb51-16" aria-hidden="true" tabindex="-1"></a>np.savez(npz_dir <span class="op">/</span> <span class="st">"all.npz"</span>, new_dataset_deltas, encoding<span class="op">=</span><span class="st">"latin1"</span>, allow_pickle<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb51-17"><a href="#cb51-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-18"><a href="#cb51-18" aria-hidden="true" tabindex="-1"></a>split_train_val(new_dataset_deltas, npz_dir <span class="op">/</span> <span class="st">"train_val.npz"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>2400 628 3028
+2400 628</code></pre>
+</div>
+</div>
+</section>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

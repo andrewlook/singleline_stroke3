@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="description" content="Merging subpaths to form a longer continuous single line.">
+
+<title>singleline_stroke3 - path_joining</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="singleline_stroke3 - path_joining">
+<meta property="og:description" content="Merging subpaths to form a longer continuous single line.">
+<meta property="og:image" content="https://singleline-stroke3.andrewlook.com/13_strokes_files/figure-html/cell-3-output-2.png">
+<meta property="og:site-name" content="singleline_stroke3">
+<meta property="og:image:height" content="389">
+<meta property="og:image:width" content="515">
+<meta name="twitter:title" content="singleline_stroke3 - path_joining">
+<meta name="twitter:description" content="Merging subpaths to form a longer continuous single line.">
+<meta name="twitter:image" content="https://singleline-stroke3.andrewlook.com/13_strokes_files/figure-html/cell-3-output-2.png">
+<meta name="twitter:image-height" content="389">
+<meta name="twitter:image-width" content="515">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">singleline_stroke3</span>
+    </a>
+  </div>
+        <div class="quarto-navbar-tools ms-auto">
+</div>
+          <div id="quarto-search" class="" title="Search"></div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./strokes.html">path_joining</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">singleline_stroke3</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./fileorg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">fileorg</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./embeddings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">embeddings</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./clustering.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">e2e</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./svg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">svg_files</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./display.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">display</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./transforms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">transforms</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./strokes.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">path_joining</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dataset.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">dataset</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bounding_boxes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">bounding_boxes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">analysis</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#joining-paths" id="toc-joining-paths" class="nav-link active" data-scroll-target="#joining-paths">Joining Paths</a>
+  <ul class="collapse">
+  <li><a href="#join_endpoints" id="toc-join_endpoints" class="nav-link" data-scroll-target="#join_endpoints">join_endpoints</a></li>
+  <li><a href="#select_2_strokes" id="toc-select_2_strokes" class="nav-link" data-scroll-target="#select_2_strokes">select_2_strokes</a></li>
+  <li><a href="#join_2_strokes" id="toc-join_2_strokes" class="nav-link" data-scroll-target="#join_2_strokes">join_2_strokes</a></li>
+  <li><a href="#merge_until" id="toc-merge_until" class="nav-link" data-scroll-target="#merge_until">merge_until</a></li>
+  <li><a href="#merge_closest_strokes" id="toc-merge_closest_strokes" class="nav-link" data-scroll-target="#merge_closest_strokes">merge_closest_strokes</a></li>
+  <li><a href="#closest_endpoint_pair" id="toc-closest_endpoint_pair" class="nav-link" data-scroll-target="#closest_endpoint_pair">closest_endpoint_pair</a></li>
+  </ul></li>
+  <li><a href="#splicing-strokes" id="toc-splicing-strokes" class="nav-link" data-scroll-target="#splicing-strokes">Splicing Strokes</a>
+  <ul class="collapse">
+  <li><a href="#closest_splice_pair" id="toc-closest_splice_pair" class="nav-link" data-scroll-target="#closest_splice_pair">closest_splice_pair</a></li>
+  <li><a href="#splice_until" id="toc-splice_until" class="nav-link" data-scroll-target="#splice_until">splice_until</a></li>
+  <li><a href="#join_splice" id="toc-join_splice" class="nav-link" data-scroll-target="#join_splice">join_splice</a></li>
+  <li><a href="#splice_2_strokes" id="toc-splice_2_strokes" class="nav-link" data-scroll-target="#splice_2_strokes">splice_2_strokes</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/andrewlook/singleline_stroke3/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">path_joining</h1>
+</div>
+
+<div>
+  <div class="description">
+    Merging subpaths to form a longer continuous single line.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<!-- WARNING: THIS FILE WAS AUTOGENERATED! DO NOT EDIT! -->
+<section id="joining-paths" class="level2">
+<h2 class="anchored" data-anchor-id="joining-paths">Joining Paths</h2>
+<p>When loading up an SVG and parsing its paths, sometimes the paths are segmented more than they need to be. For example:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>fname <span class="op">=</span> <span class="st">"../data/svg/0000.svg"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>strokes <span class="op">=</span> svg_to_strokes(fname)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>fname<span class="sc">}</span><span class="ss"> has </span><span class="sc">{</span><span class="bu">len</span>(strokes)<span class="sc">}</span><span class="ss"> distinct strokes"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>plot_strokes(strokes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>../data/svg/0000.svg has 22 distinct strokes</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="13_strokes_files/figure-html/cell-3-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Taking a closer look at the first two strokes, it appears that they could be linked.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>plot_strokes([strokes[<span class="dv">0</span>], strokes[<span class="dv">1</span>]])</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># glance at the underlying data and path lengths</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>strokes[<span class="dv">0</span>][:<span class="dv">5</span>], <span class="bu">len</span>(strokes[<span class="dv">0</span>]), strokes[<span class="dv">1</span>][:<span class="dv">5</span>], <span class="bu">len</span>(strokes[<span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="13_strokes_files/figure-html/cell-4-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<pre><code>(array([[12.67485995, 64.03514953],
+        [11.58004151, 63.41852999],
+        [10.42656469, 62.66524592],
+        [ 9.32611317, 61.78332364],
+        [ 8.39037061, 60.78078948]]),
+ 145,
+ array([[56.22437874,  6.67328336],
+        [57.31087459,  7.40713502],
+        [58.46074883,  8.07705417],
+        [59.64263365,  8.71468671],
+        [60.82516127,  9.35167852]]),
+ 155)</code></pre>
+</div>
+</div>
+<p>What’s not obvious yet is how to best join the strokes. Which endpoints of each line are closest?</p>
+<p>Does the start of stroke 0 come closest to the end of stroke 1? If so, we’d concatenate the points of stroke 0 after the points of stroke 1.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>plot_strokes([strokes[<span class="dv">0</span>], strokes[<span class="dv">1</span>]])</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>plot_strokes([np.concatenate([strokes[<span class="dv">1</span>], strokes[<span class="dv">0</span>]], axis<span class="op">=</span><span class="dv">0</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="13_strokes_files/figure-html/cell-5-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="13_strokes_files/figure-html/cell-5-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+<p>That didn’t work - there’s an awkward extra line that didn’t show up in the original image.</p>
+<p>Instead we can iterate through the combinations and find the combination of endpoints with the shortest distance.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>s0_endpoints <span class="op">=</span> [</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    strokes[<span class="dv">0</span>][<span class="dv">0</span>],</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    strokes[<span class="dv">0</span>][<span class="op">-</span><span class="dv">1</span>],</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>s1_endpoints <span class="op">=</span> [</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    strokes[<span class="dv">1</span>][<span class="dv">0</span>],</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    strokes[<span class="dv">1</span>][<span class="op">-</span><span class="dv">1</span>],</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> pos0 <span class="kw">in</span> [<span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>]:</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> pos1 <span class="kw">in</span> [<span class="dv">0</span>, <span class="op">-</span><span class="dv">1</span>]:</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        d <span class="op">=</span> np.linalg.norm(s0_endpoints[pos0] <span class="op">-</span> s1_endpoints[pos1])</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>            <span class="ss">f"dist = </span><span class="sc">{</span>d<span class="sc">}</span><span class="ss"> from s0_</span><span class="sc">{</span><span class="st">'START'</span> <span class="cf">if</span> pos0<span class="op">==</span><span class="dv">0</span> <span class="cf">else</span> <span class="st">'END'</span><span class="sc">}</span><span class="ss"> to s1_</span><span class="sc">{</span><span class="st">'START'</span> <span class="cf">if</span> pos1<span class="op">==</span><span class="dv">0</span> <span class="cf">else</span> <span class="st">'END'</span><span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>dist = 72.02044347447433 from s0_START to s1_START
+dist = 38.94401437099788 from s0_START to s1_END
+dist = 6.7684841145897465 from s0_END to s1_START
+dist = 52.632823136243246 from s0_END to s1_END</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>plot_strokes([np.concatenate([strokes[<span class="dv">0</span>], strokes[<span class="dv">1</span>]], axis<span class="op">=</span><span class="dv">0</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="13_strokes_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>We’ll want a helper function to join these strokes - for example if the closest distance was between stroke 0 start and and stroke 1 start, we’d have to flip one of the lists in order to concatenate them and haave a contiguous set of points.</p>
+<hr>
+<p><a href="https://github.com/andrewlook/singleline_stroke3/blob/main/singleline_stroke3/strokes.py#L49" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<section id="join_endpoints" class="level3">
+<h3 class="anchored" data-anchor-id="join_endpoints">join_endpoints</h3>
+<blockquote class="blockquote">
+<pre><code> join_endpoints (strokes, l_idx, l_pos, r_idx, r_pos)</code></pre>
+</blockquote>
+<hr>
+<p><a href="https://github.com/andrewlook/singleline_stroke3/blob/main/singleline_stroke3/strokes.py#L42" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="select_2_strokes" class="level3">
+<h3 class="anchored" data-anchor-id="select_2_strokes">select_2_strokes</h3>
+<blockquote class="blockquote">
+<pre><code> select_2_strokes (strokes, l_idx, r_idx)</code></pre>
+</blockquote>
+<hr>
+<p><a href="https://github.com/andrewlook/singleline_stroke3/blob/main/singleline_stroke3/strokes.py#L21" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="join_2_strokes" class="level3">
+<h3 class="anchored" data-anchor-id="join_2_strokes">join_2_strokes</h3>
+<blockquote class="blockquote">
+<pre><code> join_2_strokes (lhs, l_pos, rhs, r_pos)</code></pre>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>plot_strokes([join_2_strokes(strokes[<span class="dv">0</span>], END, strokes[<span class="dv">1</span>], START)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="13_strokes_files/figure-html/cell-11-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>We’ll want to apply this function iteratively to a collection of strokes. So we’ll want to be able to pick 2 strokes out of the list, join them, and return them combined as a full list of strokes.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># verify joining 2 strokes and adding them back to the list</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>plot_strokes(join_endpoints(strokes, <span class="dv">0</span>, END, <span class="dv">1</span>, START))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="13_strokes_files/figure-html/cell-13-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Now we’ll want a way to find which pairs of strokes to join. Let’s start by iterating through all pairs of strokes and comparing the distance between their start and endpoints.</p>
+<hr>
+<p><a href="https://github.com/andrewlook/singleline_stroke3/blob/main/singleline_stroke3/strokes.py#L121" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="merge_until" class="level3">
+<h3 class="anchored" data-anchor-id="merge_until">merge_until</h3>
+<blockquote class="blockquote">
+<pre><code> merge_until (strokes, dist_threshold=10.0)</code></pre>
+</blockquote>
+<hr>
+<p><a href="https://github.com/andrewlook/singleline_stroke3/blob/main/singleline_stroke3/strokes.py#L101" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="merge_closest_strokes" class="level3">
+<h3 class="anchored" data-anchor-id="merge_closest_strokes">merge_closest_strokes</h3>
+<blockquote class="blockquote">
+<pre><code> merge_closest_strokes (strokes, dist_threshold=10.0)</code></pre>
+</blockquote>
+<hr>
+<p><a href="https://github.com/andrewlook/singleline_stroke3/blob/main/singleline_stroke3/strokes.py#L55" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="closest_endpoint_pair" class="level3">
+<h3 class="anchored" data-anchor-id="closest_endpoint_pair">closest_endpoint_pair</h3>
+<blockquote class="blockquote">
+<pre><code> closest_endpoint_pair (strokes)</code></pre>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>actual_dist, l_idx, l_pos, r_idx, r_pos <span class="op">=</span> closest_endpoint_pair(strokes)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(actual_dist, l_idx, l_pos, r_idx, r_pos)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>expected_lhs <span class="op">=</span> strokes[l_idx][l_pos]</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>expected_rhs <span class="op">=</span> strokes[r_idx][r_pos]</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>expected_dist <span class="op">=</span> np.linalg.norm(expected_lhs <span class="op">-</span> expected_rhs)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(expected_dist)</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>test_eq(actual_dist, expected_dist)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0.40342377522616846 12 -1 13 0
+0.40342377522616846</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>_, new_strokes <span class="op">=</span> merge_closest_strokes(strokes)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co"># the list of strokes should be shorter by 1, since 2 strokes got merged</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>test_eq(<span class="bu">len</span>(strokes) <span class="op">-</span> <span class="dv">1</span>, <span class="bu">len</span>(new_strokes))</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="co"># the next closest distance should be different than what we got before,</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="co"># as that gap between lines no longer exists post-merge.</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>new_dist, <span class="op">*</span>_ <span class="op">=</span> closest_endpoint_pair(new_strokes)</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>test_ne(actual_dist, new_dist)</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Also if that was the shortest gap between points, the next distance we</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="co"># get will be larger.</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>test_eq(<span class="va">True</span>, new_dist <span class="op">&gt;</span> actual_dist)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>r0, r_iter <span class="op">=</span> merge_until(strokes, dist_threshold<span class="op">=</span><span class="dv">10</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="bu">len</span>(r0), [<span class="bu">len</span>(r) <span class="cf">for</span> r <span class="kw">in</span> r_iter]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>(5, [22, 21, 20, 19, 18, 17, 16, 15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5])</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>plot_strokes(r0)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="13_strokes_files/figure-html/cell-20-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># [plot_strokes(r) for r in r_iter]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># rescaled_strokes = svg_to_strokes(</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co">#     "../../svg-dataset/sketch_mgmt/imgs_sorted/drawings_svg_cropped/1812.svg",</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co">#     total_n=1000,</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co">#     min_n=3,</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co"># )</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co"># plot_strokes(rescaled_strokes)</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="co"># joined_strokes, _ = merge_until(rescaled_strokes, dist_threshold=10.0)</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="co"># plot_strokes(joined_strokes)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="13_strokes_files/figure-html/cell-22-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="13_strokes_files/figure-html/cell-22-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="splicing-strokes" class="level2">
+<h2 class="anchored" data-anchor-id="splicing-strokes">Splicing Strokes</h2>
+<hr>
+<p><a href="https://github.com/andrewlook/singleline_stroke3/blob/main/singleline_stroke3/strokes.py#L142" target="_blank" style="float:right; font-size:smaller">source</a></p>
+<section id="closest_splice_pair" class="level3">
+<h3 class="anchored" data-anchor-id="closest_splice_pair">closest_splice_pair</h3>
+<blockquote class="blockquote">
+<pre><code> closest_splice_pair (strokes)</code></pre>
+</blockquote>
+<hr>
+<p><a href="https://github.com/andrewlook/singleline_stroke3/blob/main/singleline_stroke3/strokes.py#L185" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="splice_until" class="level3">
+<h3 class="anchored" data-anchor-id="splice_until">splice_until</h3>
+<blockquote class="blockquote">
+<pre><code> splice_until (strokes, dist_threshold=10.0)</code></pre>
+</blockquote>
+<hr>
+<p><a href="https://github.com/andrewlook/singleline_stroke3/blob/main/singleline_stroke3/strokes.py#L178" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="join_splice" class="level3">
+<h3 class="anchored" data-anchor-id="join_splice">join_splice</h3>
+<blockquote class="blockquote">
+<pre><code> join_splice (strokes, l_idx, r_idx, k)</code></pre>
+</blockquote>
+<hr>
+<p><a href="https://github.com/andrewlook/singleline_stroke3/blob/main/singleline_stroke3/strokes.py#L173" target="_blank" style="float:right; font-size:smaller">source</a></p>
+</section>
+<section id="splice_2_strokes" class="level3">
+<h3 class="anchored" data-anchor-id="splice_2_strokes">splice_2_strokes</h3>
+<blockquote class="blockquote">
+<pre><code> splice_2_strokes (lhs, rhs, k)</code></pre>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>r1, r1_iter <span class="op">=</span> splice_until(r0, <span class="fl">30.0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>plot_strokes(strokes)</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>plot_strokes(r1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="13_strokes_files/figure-html/cell-28-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="13_strokes_files/figure-html/cell-28-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
